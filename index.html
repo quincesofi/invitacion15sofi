@@ -8,7 +8,7 @@
 <style>
   :root{
     --ink:#2b3140; --muted:#6e7280; --stroke:#e8e7ef; --rad:22px; --max:1100px;
-    --accent:#6b3550;               /* color botones */
+    --accent:#6b3550;
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0;color:var(--ink);font-family:ui-sans-serif,system-ui,Inter,Roboto,Segoe UI,Arial}
@@ -30,23 +30,29 @@
   .grid.cols-2{grid-template-columns:1.2fr .8fr}
   @media (max-width:900px){.grid.cols-2{grid-template-columns:1fr}}
 
-  /* ===== SECCIÓN 1: Presentación + Countdown (con flores.png de fondo) ===== */
+  /* ===== SECCIÓN 1: Presentación + Countdown (con fondo floral responsive) ===== */
   header.hero{
     position:relative;
     padding:70px 0 56px;
     background:
-      linear-gradient(to bottom, rgba(255,255,255,.90), rgba(255,255,255,.85)),
-      url('img/flores.png') bottom center / cover no-repeat;
+      linear-gradient(to bottom, rgba(255,255,255,.94), rgba(255,255,255,.88)),
+      url('img/flores-1200.png') bottom center / cover no-repeat;
+  }
+  @media (min-width: 801px){
+    header.hero{
+      background:
+        linear-gradient(to bottom, rgba(255,255,255,.94), rgba(255,255,255,.88)),
+        url('img/flores-3000.png') bottom center / cover no-repeat;
+    }
   }
 
   /* ===== SECCIÓN 2: RSVP + Ubicación (otro fondo) ===== */
   section.rsvp{
     padding:70px 0;
-    /* Si tenés un segundo patrón, descomentá la línea de url y subí img/pattern-soft.png */
     background:
       radial-gradient(1400px 500px at 80% -10%, #f6f2ff 0%, transparent 60%),
       linear-gradient(180deg,#f6f2ff,#eef6ff);
-    /* , url('img/pattern-soft.png') center/600px repeat;  */
+    /* Si subes un patrón: , url('img/pattern-soft.png') center/600px repeat;  */
   }
 
   /* ===== SECCIÓN 3: Hashtag (tercer tono) ===== */
