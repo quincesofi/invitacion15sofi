@@ -30,35 +30,41 @@
   .grid.cols-2{grid-template-columns:1.2fr .8fr}
   @media (max-width:900px){.grid.cols-2{grid-template-columns:1fr}}
 
-  /* ===== SECCIÓN 1: Presentación + Countdown (con fondo floral responsive) ===== */
+  /* ===== SECCIÓN 1: Presentación + Countdown (fondo floral responsive) ===== */
   header.hero{
-    position:relative;
-    padding:70px 0 56px;
-    background:
-      linear-gradient(to bottom, rgba(255,255,255,.20), rgba(255,255,255,.04)),
-      url('img/flores-1200.png') bottom center / cover no-repeat;
+    position:relative; padding:150px 0 75px;
+    background: url('img/flores-1200.png') bottom center / cover no-repeat;
   }
-  @media (min-width: 801px){
-    header.hero{
-      background:
-        linear-gradient(to bottom, rgba(255,255,255,.20), rgba(255,255,255,.04)),
-        url('img/flores-3000.png') bottom center / cover no-repeat;
-    }
+  @media (min-width:801px){
+    header.hero{ background: url('img/flores-3000.png') bottom center / cover no-repeat; }
   }
 
-  /* ===== SECCIÓN 2: RSVP + Ubicación (otro fondo) ===== */
+  /* ===== SECCIÓN 2: RSVP + Ubicación ===== */
   section.rsvp{
     padding:70px 0;
     background:
       radial-gradient(1400px 500px at 80% -10%, #f6f2ff 0%, transparent 60%),
       linear-gradient(180deg,#f6f2ff,#eef6ff);
-    /* Si subes un patrón: , url('img/pattern-soft.png') center/600px repeat;  */
   }
 
-  /* ===== SECCIÓN 3: Hashtag (tercer tono) ===== */
-  section.hashtag{
+  /* ===== SECCIÓN 2.5: Música ===== */
+  section.music{
+    padding:70px 0;
+    background:
+      radial-gradient(1200px 500px at 20% -10%, #ffeaf3 0%, transparent 60%),
+      linear-gradient(180deg,#fff5f9,#fff);
+  }
+
+  /* ===== SECCIÓN 3: Dresscode ===== */
+  section.dress{
     padding:70px 0;
     background: linear-gradient(180deg,#eef6ff,#eaf3ff);
+  }
+
+  /* ===== SECCIÓN 4: Hashtag ===== */
+  section.hashtag{
+    padding:70px 0;
+    background: linear-gradient(180deg,#eaf3ff,#e6f0ff);
   }
 
   /* Countdown */
@@ -67,17 +73,15 @@
   .unit .num{font-size:40px;font-weight:800;color:#2a2f55}
   .unit .lab{font-size:12px;color:#7b8090;letter-spacing:.22em;text-transform:uppercase}
 
-  /* Form RSVP */
-  form#rsvpForm .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  @media (max-width:700px){form#rsvpForm .row{grid-template-columns:1fr}}
+  /* Formularios */
+  form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:700px){form .row{grid-template-columns:1fr}}
   .field{display:flex;flex-direction:column;gap:8px}
   label{font-size:13px;color:#475066;letter-spacing:.06em;text-transform:uppercase}
   input,select,textarea{border:1px solid var(--stroke); background:#fff; color:#1f2530; border-radius:14px; padding:12px 14px; font-size:16px; outline:none}
   textarea{resize:vertical; min-height:110px}
   .actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
   .note{font-size:12px;color:#7b8090}
-
-  /* Mapa */
   .map-embed{aspect-ratio:16/10;border:0;width:100%;border-radius:16px;box-shadow:inset 0 0 0 1px var(--stroke)}
 
   /* Scroll reveal */
@@ -90,7 +94,7 @@
 </head>
 <body>
 
-  <!-- SECCIÓN 1: Presentación + Countdown con flores de fondo -->
+  <!-- SECCIÓN 1: Presentación + Countdown -->
   <header class="hero" id="hero">
     <div class="container">
       <div class="card" style="text-align:center">
@@ -113,17 +117,14 @@
     </div>
   </header>
 
-  <!-- SECCIÓN 2: RSVP + Ubicación con otro fondo -->
+  <!-- SECCIÓN 2: RSVP + Ubicación -->
   <section class="rsvp" id="rsvp">
     <div class="container grid cols-2">
-      <!-- RSVP -->
       <div class="card reveal">
         <div class="heading">
           <h2>Confirmar asistencia</h2>
           <span class="chip">Evento: 21/11 · 21:30</span>
         </div>
-
-        <!-- Enviar directo a Google Forms SIN UI de Google -->
         <form id="rsvpForm">
           <div class="row">
             <div class="field">
@@ -139,7 +140,6 @@
             <label for="mensaje">Restricciones Alimentarias / Alergias</label>
             <textarea id="mensaje" name="entry.928621936" placeholder="Alergias, preferencias, etc."></textarea>
           </div>
-
           <div class="actions">
             <button type="submit" class="btn">Enviar confirmación</button>
             <span class="note">Tus respuestas se guardan en una hoja privada.</span>
@@ -147,7 +147,6 @@
         </form>
       </div>
 
-      <!-- Ubicación -->
       <div class="card reveal">
         <div class="heading">
           <h2>Ubicación</h2>
@@ -156,7 +155,6 @@
         <iframe class="map-embed"
           src="https://www.google.com/maps?q=Av.+Valpara%C3%ADso+5092,+C%C3%B3rdoba,+Argentina&output=embed"
           loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Mapa del Salón Moltbe"></iframe>
-
         <div style="height:12px"></div>
         <div class="actions">
           <a class="btn" target="_blank" rel="noopener"
@@ -166,7 +164,42 @@
     </div>
   </section>
 
-  <!-- SECCIÓN 3: Hashtag con tercer tono -->
+  <!-- SECCIÓN 2.5: Música -->
+  <section class="music" id="musica">
+    <div class="container">
+      <div class="card reveal">
+        <div class="heading">
+          <h2>No es una fiesta si no suena 🎶</h2>
+          <span class="chip">Sugerí tu tema</span>
+        </div>
+        <!-- Form de una sola entrada (NUEVO Google Form) -->
+        <form id="musicForm">
+          <div class="field">
+            <label for="cancion">Tu canción / artista</label>
+            <!-- Reemplazá entry.XXXXX_SONG con el ID real del campo de texto -->
+            <input id="cancion" name="entry.1830278073" placeholder="Ej: Dua Lipa - Houdini" required />
+          </div>
+          <div class="actions">
+            <button type="submit" class="btn">Enviar canción</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: Dresscode -->
+  <section class="dress" id="dresscode">
+    <div class="container">
+      <div class="card reveal">
+        <div class="heading">
+          <h2>¿Qué nos ponemos?</h2>
+          <span class="chip">Dresscode: Elegante</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 4: Hashtag -->
   <section class="hashtag" id="hashtag">
     <div class="container">
       <div class="card reveal" style="text-align:center">
@@ -205,7 +238,7 @@
     $d.textContent=d; $h.textContent=h; $m.textContent=m; $s.textContent=s;
   }, 1000);
 
-  // RSVP -> Google Forms (sin UI Google)
+  // ===== RSVP -> Google Forms (sin UI Google)
   const FORM_ID = "1FAIpQLSeUGWB76S1fqm_DcfBI3SdTKuzuJs40se1Hqg52DQDvh3rKgQ";
   const FORM_ACTION = `https://docs.google.com/forms/d/e/${FORM_ID}/formResponse`;
 
@@ -219,6 +252,26 @@
       toast.style.display='block'; setTimeout(()=>toast.style.display='none', 3200);
     }catch(err){
       alert("Hubo un problema al enviar tu confirmación. Probá de nuevo.");
+      console.error(err);
+    }
+  });
+
+  // ===== MUSIC -> otro Google Form (una sola entrada texto)
+  // Reemplazá MUSIC_FORM_ID por el ID del segundo Form y entry.XXXXX_SONG por el ID del campo
+  const MUSIC_FORM_ID = "1FAIpQLSdMw28ebIbafYUbHAyvGBY2uxPetxnfeA7buX0w8gJM3GGRTQ";
+  const MUSIC_ACTION = `https://docs.google.com/forms/d/e/${MUSIC_FORM_ID}/formResponse`;
+
+  document.getElementById('musicForm').addEventListener('submit', async (ev)=>{
+    ev.preventDefault();
+    const fd = new FormData(ev.target);
+    try{
+      await fetch(MUSIC_ACTION, { method:'POST', mode:'no-cors', body: fd });
+      ev.target.reset();
+      const t = document.getElementById('toast');
+      t.textContent = "¡Gracias! Agregamos tu canción 🎵";
+      t.style.display='block'; setTimeout(()=>t.style.display='none', 3000);
+    }catch(err){
+      alert("No pudimos guardar la canción. Probá de nuevo.");
       console.error(err);
     }
   });
